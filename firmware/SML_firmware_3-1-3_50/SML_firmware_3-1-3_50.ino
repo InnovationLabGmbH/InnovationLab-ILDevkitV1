@@ -107,9 +107,9 @@ static void Thread_matrixRead(void* arg)
 {
     while(true) {
         shield.read_matrix();
-        Serial2.write("AT+CIPSEND=0,1920\r\n"); //1440 //1920
+        // Serial2.write("AT+CIPSEND=0,1920\r\n"); //1440 //1920
         delay(5);
-        Serial2.write((uint8_t*)shield.pressureBuf, 1920);  //1440 //1920
+        // Serial2.write((uint8_t*)shield.pressureBuf, 1920);  //1440 //1920
         // Sleep for 5 milliseconds.
         vTaskDelay((5L * configTICK_RATE_HZ) / 1000L);
     }
@@ -117,7 +117,7 @@ static void Thread_matrixRead(void* arg)
 
 // thread to communicate with the SML (never stopping)
 static void Thread_serialComm(void* arg) {
-    while (1) {
+    while (true) {
         // check if a request from SML has arrived
         unsigned short frame_id = prt.check_request();
         if (frame_id == START_REQUEST_FRAME){
