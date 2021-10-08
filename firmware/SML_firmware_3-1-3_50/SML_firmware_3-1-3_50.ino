@@ -1,6 +1,7 @@
 // Version: 3.1.3.50
 // Author: Florian Wiese - InnovationLab GmbH
 // Description: Arduino Sketch that allows to connect the DevKit with SML.
+// Compatibility: SML 3.1.3.X, 3.1.4.X
 const unsigned short SKETCH_VERSION[4] = {3, 1, 3, 50};
 /*
 The first three numbers of the version show with which SML version this sketch is compatible.
