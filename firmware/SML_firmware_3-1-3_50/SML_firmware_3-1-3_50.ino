@@ -83,8 +83,8 @@ void session_loop() {
         prt.send_frame(ANSWER_FRAME);
 
         // send data
-        for(short y = 0; y < prt.settings.height; y++) {
-            for(short x = 0; x < prt.settings.width; x++) {
+        for(short x = 0; x < prt.settings.width; x++) {
+            for(short y = 0; y < prt.settings.height; y++) {
                 if (TEST_MODE){
                     // compute a test value for pixel (x, y)
                     sensor_value = (float) x + (float) y * (float) prt.settings.width;
