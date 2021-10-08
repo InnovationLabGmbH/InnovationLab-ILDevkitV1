@@ -34,7 +34,8 @@ void setup() {
     prt.settings.frame_size = WIDTH * HEIGHT * 2 + 20;
 
     // initialize serials
-    Serial.begin(BAUD_RATE);
+    Serial.begin(BAUD_RATE);  // USB init
+    Serial2.begin(BAUD_RATE);  // esp8266 connection init
 
     // initialize shield
     shield.setup();

@@ -9,6 +9,21 @@ void Shield::digitalPotWrite(uint8_t potPin, uint8_t address, uint8_t value) {
 // initializes the measurement functionality
 void Shield::setup(void)
 {
+    //reset ESP8266
+    Serial2.write("AT+RST\r\n");
+    delay(500);
+    //set ESP8266 AP mode
+    Serial2.write("AT+CWMODE_DEF=2\r\n"); //3
+    delay(500);
+    Serial2.write("AT+CWSAP=\"CARSEAT_DEMO\",\"12345678\",1,3\r\n"); //5,0
+    delay(500);
+    Serial2.write("AT+CIPMUX=1\r\n"); //0
+    delay(500);
+    Serial2.write("AT+CIPSERVER=1\r\n");
+    delay(500);
+    Serial2.write("AT+CIPMODE=1\r\n"); //0
+    delay(500);
+
     // set ESP8266 enable pin
     digitalWrite(ESP_EN, LOW);
 
